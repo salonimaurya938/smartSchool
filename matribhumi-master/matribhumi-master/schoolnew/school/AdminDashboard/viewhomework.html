@@ -1,0 +1,63 @@
+<div xmls:th="http://www.thymeleaf.org" th:replace="admin/master::layout(~{::section})">
+
+	<section>
+		<main id="main" class="main">
+
+			<div class="pagetitle">
+				<h1>View All Question</h1>
+				<nav>
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="viewhomework">Admin</a></li>
+						<li class="breadcrumb-item">Library</li>
+						<li class="breadcrumb-item active">View All Homework</li>
+					</ol>
+				</nav>
+			</div><!-- End Page Title -->
+			<div class="col-sm-12">
+				<div class="card">
+					<div class="card-body table-responsive">
+						<h5 class="card-title">All Student Complaints</h5>
+						<table width="100%">
+							<tr>
+								<th>Sr.no.</th>
+								<th>Question</th>
+								<th>Action</th>
+							</tr>
+							<tr th:each="questions,id:${question}">
+								<td th:text="${id.count}"></td>
+								<td th:text="${questions.question}"></td>
+								<td>																
+										<div class="form">
+											<form th:action="@{/deleteQuestion{id}}" method="post" th:object="${question}">
+												<input type="hidden" th:value="${questions.id}" name="id" />
+												<button type="submit" value="Submit"
+													class="bg-danger" onclick="reloadPage()">Delete</button>
+											</form>
+										</div>
+										<div class="form">
+											<button class="bg-success"><a
+													th:href="|@{/updateQuestion/{id}(id=${questions.id})}|"
+													style="color: white;">Update</a>&nbsp;</button>
+										</div>																			
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</main><!-- End #main -->
+	</section>
+
+</div>
+
+<style>
+	button {
+		border-radius: 5px;
+		color: white;
+		border: none;
+	}
+	.form{
+		margin-left: 2px;
+		float: left;
+	}
+</style>

@@ -1,0 +1,126 @@
+<div xmls:th="http://www.thymeleaf.org" th:replace="admin/master::layout(~{::section})">
+
+	<section>
+		<main id="main" class="main">
+			<div class="pagetitle">
+				<h1>View All Complaints</h1>
+				<nav>
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="viewhomework">Admin</a></li>
+						<li class="breadcrumb-item">Complaints</li>
+					</ol>
+				</nav>
+				<button type="button" class="btn btn-primary btn1" data-bs-toggle="modal"
+					data-bs-target="#staticBackdrop">
+					Add+
+				</button>
+
+				<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+					tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+
+							<form class="row" th:action="@{/addComplaints}" method="post" enctype="multipart/form-data">
+								
+									<label for="complaints" class="form-label">Complaints</label>
+									<input type="text" name="complaints" class="form-control" id="inputNanme4"
+										th:field="*{complaints}">					
+
+								<br><br><br>
+								<div class="text-center" style="text-align: center;">
+									<button type="submit" name="submit" class="btn btn-primary">Submit</button>
+									<button type="reset" name="reset" class="btn btn-secondary">Reset</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+
+			</div><!-- End Page Title -->
+			<br>
+			<div class="col-sm-12">
+				<div class="card">
+					<div class="card-body table-responsive">
+						<h5 class="card-title">All Student Complaints</h5>
+						<table width="100%">
+							<thead>
+								<tr>
+								<th>Sr.no.</th>
+								<th>Complaints</th>
+								<th>Action</th>
+							</tr>
+							</thead>
+							<tbody>
+								<tr th:each="lists,id:${lists}">
+								<td th:text="${id.count}"></td>
+								<td th:text="${lists.complaint}"></td>
+								<td>
+									<form th:action="@{/deleteComplaints/{id}}" method="post" th:object="${lists}">
+										<input type="hidden" th:value="${lists.id}" name="id" />
+										<button type="submit" value="Submit" class="bg-danger">Delete</button>
+									</form>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+
+					</div>
+				</div>
+			</div>
+</div><!-- End Page Title -->
+</main><!-- End #main -->
+</section>
+</div>
+
+<style>
+	button {
+		border-radius: 5px;
+		color: white;
+		border: none;
+	}
+
+	.btn1 {
+		position: relative;
+		top: -10px;
+		left: 94%;
+	}
+	/* Define some basic table styles */
+	table {
+		border-collapse: collapse;
+		width: 100%;
+		margin-bottom: 20px;
+	}
+
+	th,
+	td {
+		padding: 12px 15px;
+		text-align: left;
+		border-bottom: 1px solid #ddd;
+	}
+
+	/* Style the table header */
+	th {
+		background-color: #f2f2f2;
+		color: #333;
+	}
+
+	/* Style alternating rows */
+	tr:nth-child(even) {
+		background-color: #f2f2f2;
+	}
+
+	/* Style table rows on hover */
+	tr:hover {
+		background-color: #ddd;
+	}
+
+	/* Add some spacing and center-align text in the first column */
+	td:first-child {
+		padding-left: 10px;
+		/*text-align: center;*/
+	}
+</style>
+
+<!----  <button class="bg-success"><a th:href="|@{/updateComplaints/{id}}|"
+											style="color: white;">Update</a>&nbsp;</button>--->

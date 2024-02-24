@@ -1,0 +1,428 @@
+<div xmls:th="http://www.thymeleaf.org" th:replace="admin/master::layout(~{::section})">
+
+	<section>
+		<main id="main" class="main">
+
+			<div class="pagetitle">
+				<h1>New Admission</h1>
+				<nav>
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="adminDashBoard">Admin</a></li>
+						<li class="breadcrumb-item">New Admission</li>
+					</ol>
+				</nav>
+				<!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+					New Addmission+
+				</button>
+<br>
+				<!-- Modal -->
+				<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+					tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+					<div class="modal-dialog modal-fullscreen">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title" id="staticBackdropLabel" style="color: navy;">New Student
+									Admission</h4>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<div class="container">
+									<div class="my-card mt-2 radius">
+										<form action="" th:action="@{/newAdmission}" method="post"
+											th:object="${admission}" enctype="multipart/form-data">
+											<div class="row">
+												<div class="col-sm-12">
+													<div class="col-sm-2" style=" height: 220px; float: left;"></div>
+													<div class="col-sm-2" style=" height: 220px; float: left;">
+														<div class="form-group">
+															<label for="files" class="btn"
+																style="height:135px; width:120px; background-color: aliceblue; border:double navy;">
+																<img th:src="@{assetsfront/img/img22.png}" height="100%"
+																	width="100%" alt="Not found Path...">
+															</label>
+															<p id="imgName"></p>
+															<h5>Student Profile</h5>
+															<input id="files" name="stdProfile"
+																style="visibility:hidden;" type="file">
+														</div>
+													</div>
+													<div class="col-sm-1" style=" height: 220px; float: left;"></div>
+													<div class="col-sm-2" style=" height: 220px; float: left;">
+														<div class="form-group">
+															<label for="filess" class="btn"
+																style="height:135px; width:120px; background-color: aliceblue; border:double navy;">
+																<img th:src="@{assetsfront/img/img22.png}" height="100%"
+																	width="100%" alt="Not found Path...">
+															</label>
+															<p id="imgName"></p>
+															<h5>Father Profile</h5>
+															<input id="filess" name="fProfile"
+																style="visibility:hidden;" type="file">
+															<p id="pimg"></p>
+														</div>
+													</div>
+													<div class="col-sm-1" style=" height: 220px; float: left;"></div>
+													<div class="col-sm-2" style="height: 220px; float: left;">
+														<div class="form-group">
+															<label for="filesss" class="btn"
+																style="height:135px; width:120px; background-color: aliceblue; border:double navy;">
+																<img th:src="@{assetsfront/img/img22.png}" height="100%"
+																	width="100%" alt="Not found Path...">
+															</label>
+															<p id="imgName"></p>
+															<h5>Mother Profile</h5>
+															<input id="filesss" name="mProfile"
+																style="visibility:hidden;" type="file">
+															<p id="mimg"></p>
+														</div>
+													</div>
+													<div class="col-sm-2" style="height: 220px; float: left;"></div>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-sm-6 firstSecondPart">
+													<div class="form-group">
+														<label for="admissionNo">Admission No</label> <input type="text"
+															name="admissionNo" class="form-control inputbox inputbox"
+															id="admissionNo" aria-describedby="emailHelp"
+															placeholder="Enter AdmissionNo...">
+													</div>
+													<div class="form-group">
+														<label for="name">Student Name</label> <input type="text"
+															name="name" class="form-control inputbox" id="name"
+															aria-describedby="emailHelp"
+															placeholder="Enter Student Name...">
+													</div>
+													<div class="form-group">
+														<label for="fname">Father Name</label> <input type="text"
+															name="fname" class="form-control inputbox" id="fname"
+															aria-describedby="emailHelp"
+															placeholder="Enter Father Name...">
+													</div>
+													<div class="form-group">
+														<label for="mname">Mother Name</label> <input type="text"
+															name="mname" class="form-control inputbox" id="mname"
+															aria-describedby="emailHelp"
+															placeholder="Enter Mother Name...">
+													</div>
+													<div class="form-group">
+														<label for="username">Date of Birth</label> <input
+															type="datetime-local" name="dob"
+															class="form-control inputbox" id="dob"
+															aria-describedby="emailHelp"
+															placeholder="Enter Date of Birth...">
+													</div>
+													<div class="form-group">
+														<label for="gender">Gender</label> <input type="text"
+															name="gender" class="form-control inputbox" id="dob"
+															aria-describedby="emailHelp"
+															placeholder="Enter Date of Birth...">
+													</div>
+													<div class="form-group">
+														<label for="bloodGroup">Blood Group</label> <input type="text"
+															name="bloodGroup" class="form-control inputbox"
+															id="bloodGroup" aria-describedby="bloodGroup"
+															placeholder="Enter Blood Group...">
+													</div>
+													<div class="form-group">
+														<label for="classes">Class</label> <input type="text"
+															name="classes" class="form-control inputbox" id="class"
+															aria-describedby="emailHelp"
+															placeholder="Enter which class...">
+													</div>
+													<div class="form-group">
+														<label for="address">Home Address</label> <input type="text"
+															name="address" class="form-control inputbox" id="address"
+															aria-describedby="emailHelp"
+															placeholder="Enter your Home Address...">
+													</div>
+												</div>
+
+												<div class="col-sm-6 firstSecondPart">
+													<div class="form-group">
+														<label for="gmail">Email address</label> <input type="email"
+															name="gmail" class="form-control inputbox" id="gmail"
+															aria-describedby="emailHelp" placeholder="Enter email...">
+													</div>
+													<div class="form-group">
+														<label for="district">District</label> <input type="text"
+															name="district" class="form-control inputbox" id="district"
+															aria-describedby="emailHelp"
+															placeholder="Enter your District...">
+													</div>
+													<div class="form-group">
+														<label for="state">State</label> <input type="text"
+															class="form-control inputbox" name="state" id="state"
+															aria-describedby="emailHelp"
+															placeholder="Enter your state...">
+													</div>
+													<div class="form-group">
+														<label for="pincode">pincode</label> <input type="text"
+															name="pincode" class="form-control inputbox" id="pincode"
+															aria-describedby="emailHelp"
+															placeholder="Enter your Pincode...">
+													</div>
+													<div class="form-group">
+														<label for="aadharNo">AadharCard No</label> <input type="text"
+															name="aadharNo" class="form-control inputbox" id="aadharNo"
+															aria-describedby="emailHelp"
+															placeholder="Enter your Aadhar number...">
+													</div>
+													<div class="form-group">
+														<label for="fqulification">Father Qulification</label> <input
+															type="text" name="fqulification"
+															class="form-control inputbox" id="fqulification"
+															aria-describedby="emailHelp"
+															placeholder="Enter your father qulification...">
+													</div>
+													<div class="form-group">
+														<label for="mqulification">Mother Qulification</label> <input
+															type="text" name="mqulification"
+															class="form-control inputbox" id="mqulification"
+															aria-describedby="emailHelp"
+															placeholder="Enter your Mother qulification...">
+													</div>
+													<div class="form-group">
+														<label for="foccupation">Father Occupation</label> <input
+															type="text" name="foccupation" class="form-control inputbox"
+															id="foccupation" aria-describedby="emailHelp"
+															placeholder="Enter your father occupation...">
+													</div>
+
+													<div class="form-group">
+														<label for="pmob">Contact No</label> <input type="text"
+															name="pmob" class="form-control inputbox" id="pmob"
+															aria-describedby="emailHelp"
+															placeholder="Enter your parent Mobile number...">
+													</div>
+												</div>
+											</div><br><br>
+											<div class="row">
+												<div class="col-sm-12">
+													<h4 style="color: navy;">Fee Section</h4>
+													<p>Fees refer to the costs associated with attending an educational
+														institution, such as a school.
+														schools offer financial assistance or scholarships to help
+														students from lower-income families access education.
+													</p>
+												</div>
+											</div>
+											<br>
+											<div class="row">
+												<div class="col-sm-7">
+													<div class="form-group">
+														<label for="receiptNo">Receipt No</label> <input type="text"
+															name="receiptNo" class="form-control inputbox"
+															id="receiptNo" aria-describedby="emailHelp"
+															placeholder="Enter Receipt No...">
+													</div>
+													<div class="form-group">
+														<label for="amount">Amount</label> <input type="text"
+															name="amount" class="form-control inputbox" id="amount"
+															aria-describedby="emailHelp" placeholder="Enter Amount...">
+													</div>
+													<div class="form-group">
+														<label for="rollNo">Roll No</label> <input type="text"
+															name="rollNo" class="form-control inputbox" id="rollNo"
+															aria-describedby="emailHelp"
+															placeholder="Enter Date of Birth...">
+													</div>
+												</div>
+												<div class="col-sm-5">
+													<div class="form-group">
+														<label for="registrationNo">Registration No</label> <input
+															type="text" name="registrationNo"
+															class="form-control inputbox" id="admissionNo"
+															aria-describedby="emailHelp"
+															placeholder="Enter Registration No...">
+													</div>
+													<div class="form-group">
+														<label for="classAdmittedinto">Class Admitted to</label> <input
+															type="text" name="classAdmittedinto"
+															class="form-control inputbox" id="classAdmittedinto"
+															aria-describedby="emailHelp"
+															placeholder="Enter Father Name...">
+													</div>
+
+
+												</div>
+											</div>
+									</div><br><br>
+									<div class="row">
+										<div class="col-sm-12">
+											<h4 style="color: navy;">Login Section</h4>
+											<p>A login form is an essential component of user authentication in web
+												applications and websites.A well-designed login form should be
+												user-friendly, secure, and responsive across different devices and
+												screen sizes.</p>
+										</div>
+									</div>
+									<br>
+									<div class="row">
+										<div class="col-sm-7">
+											<div class="form-group">
+												<label for="userId">UserId</label> <input type="text"
+													name="userId" class="form-control inputbox" id="userId"
+													aria-describedby="emailHelp" placeholder="Enter Your UserId...">
+											</div>
+										</div>
+										<div class="col-sm-5">
+											<div class="form-group">
+												<label for="pass">Password</label> <input type="text"
+													name="pass" class="form-control inputbox" id="pass"
+													aria-describedby="emailHelp" placeholder="Enter Your Password...">
+											</div>
+										</div>
+									</div>
+									<br><br>
+									<div class="form-group form-check text-center">
+										<input type="checkbox" name="agreement" class="formss" />
+										<label class="agreemet">Accept
+											terms and conditions </label>
+									</div>
+									<div class="container text-center">
+										<button type="submit" class="btn btn-primary">Submit</button>
+										<button type="reset" class="btn btn-info  text-light">Reset</button>
+										<button type="button" class="btn btn-danger"
+											data-bs-dismiss="modal">Close</button>
+									</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+<div class="col-sm-12">
+	<div class="card">
+		<div class="card-body table-responsive">
+			<h5 class="card-title">Admission Details</h5>
+			<table width="100%" style="font-size: 80%" HSPACE=3 VSPACE=4 class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Sr.No</th>
+						<th>Admission No</th>
+						<th>Student Name</th>
+						<th>Father Name</th>
+						<th>Mother Name</th>
+						<th>Date of Birth</th>
+						<th>Gender</th>
+						<th>Blood Group</th>
+						<th>Student Class</th>
+						<th>Address</th>
+						<th>Gmail</th>
+						<th>District</th>
+						<th>State</th>
+						<th>PinCode</th>
+						<th>Aadhar No</th>
+						<th>Father Qulification</th>
+						<th>Mother Qulification</th>
+						<th>Father Occupation</th>
+						<th>Contact No</th>
+						<th>Receipt No</th>
+						<th>Amount</th>
+						<th>Registration No</th>
+						<th>Class Admitted </th>
+						<th>Roll No</th>
+						<th>UserId</th>
+						<th>Password</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="student,id:${admission}">
+						<td th:text="${id.count}"></td>
+						<td th:text="${student.admissionNo}"></td>
+						<td th:text="${student.name}"></td>
+						<td th:text="${student.fname}"></td>
+						<td th:text="${student.mname}"></td>
+						<td th:text="${student.dob}"></td>
+						<td th:text="${student.gender}"></td>
+						<td th:text="${student.bloodGroup}"></td>
+						<td th:text="${student.classes}"></td>
+						<td th:text="${student.address}"></td>
+						<td th:text="${student.gmail}"></td>
+						<td th:text="${student.district}"></td>
+						<td th:text="${student.state}"></td>
+						<td th:text="${student.pincode}"></td>
+						<td th:text="${student.aadharNo}"></td>
+						<td th:text="${student.fqulification}"></td>
+						<td th:text="${student.mqulification}"></td>
+						<td th:text="${student.foccupation}"></td>
+						<td th:text="${student.pmob}"></td>
+						<td th:text="${student.receiptNo}"></td>
+						<td th:text="${student.amount}"></td>
+						<td th:text="${student.registrationNo}"></td>
+						<td th:text="${student.classAdmittedinto}"></td>
+						<td th:text="${student.rollNo}"></td>
+						<td th:text="${student.userId}"></td>
+						<td th:text="${student.pass}"></td>						
+					<!--	<td>
+							<div class="form">
+								<form th:action="@{/deleteBook{id}}" method="post" th:object="${book}">
+									<input type="hidden" th:value="${books.id}" name="id" />
+									<button type="submit" value="Submit" class="bg-light"><i
+											class="bi bi-trash3 text-danger"></i></button>
+								</form>
+							</div>
+							<div class="form">
+								<button class="bg-light"><a th:href="|@{/bupdate{id}(id=${books.id})}|"
+										style="color: white;"><i
+											class="bi bi-pencil-square text-success"></i></a>&nbsp;</button>
+								<button class="bg-light"><a href="https://www.javatpoint.com/spring-boot-tutorial"
+										download="download" style="color: white;"><i
+											class="bi bi-eye-fill text-info"></i></a>&nbsp;</button>
+							</div>
+						</td>-->
+					</tr>
+					<!-- Add more rows as needed -->
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+
+<style>
+	.inputbox {
+		border-radius: unset;
+		border: 2px solid #969799;
+		margin-bottom: 8px;
+	}
+
+	/*.picborder{
+	     height:15%;
+	     width:28%;
+	     background-color: aliceblue; 
+	     border-style:double navy;
+	     float: left;
+	     margin: 5%;
+   }*/
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script>
+
+	$("#files").change(function () {
+		filename1 = this.files[0].name;
+		console.log(filename1);
+		$("#imgName").text(filename1);
+	});
+
+	$("#filess").change(function () {
+		filenames = this.filess[0].name;
+		console.log(filenames);
+		$("#pimg").text(filenames);
+	});
+
+	$("#filesss").change(function () {
+		filenamess = this.filesss[0].name;
+		console.log(filenamess);
+		$("#mimg").text(filenamess);
+	});
+
+</script>
+
+</main>
+</section>

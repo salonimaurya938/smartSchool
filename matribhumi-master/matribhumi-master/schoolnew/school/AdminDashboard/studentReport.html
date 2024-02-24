@@ -1,0 +1,41 @@
+<div xmls:th="http://www.thymeleaf.org" th:replace="admin/master::layout(~{::section})">
+	<section>
+		<main id="main" class="main">
+
+			<div class="pagetitle">
+				<h1>Student Report Cards</h1>
+				<nav>
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="adminDashBoard">Admin</a></li>
+						<li class="breadcrumb-item">Report & Cards</li>
+						<li class="breadcrumb-item active">Report Cards</li>
+					</ol>
+				</nav>
+				<div class="col-sm-6 offset-md-3">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">Add Report Cards...</h5>
+
+							<!-- Vertical Form -->
+							<form class="row g-3" th:action="@{#}" method="post" enctype="multipart/form-data">
+								<div class="col-12">
+									<label for="reportCards" class="form-label">Report Cards</label>
+									<input type="text" name="reportCards" class="form-control" id="reportCards">
+								</div>
+
+								<br><br><br>
+								<div class="text-center" style="text-align: center;">
+									<button type="submit" name="submit" class="btn btn-primary">Submit</button>
+									<button type="reset" name="reset" class="btn btn-secondary">Reset</button>
+								</div>
+							</form><!-- Vertical Form -->
+
+						</div>
+					</div>
+				</div>
+			</div><!-- End Page Title -->
+
+		</main><!-- End #main -->
+	</section>
+
+</div>
